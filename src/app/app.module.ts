@@ -9,6 +9,7 @@ import { RegisterComponent } from './components/auth/register/register.component
 import { DashboardComponent } from './components/user/dashboard/dashboard.component';
 import { AlertModule } from 'ngx-bootstrap';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { HomeComponent } from './components/home/home.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +19,8 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     RegisterComponent,
     DashboardComponent,
     PublicComponent,
-    SecureComponent
+    SecureComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
