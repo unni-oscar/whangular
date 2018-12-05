@@ -1,4 +1,54 @@
-<p>
-  dashboard works!
-</p>
+
 <!-- <i class="fa fa-refresh" aria-hidden="true"></i> -->
+<!-- <div class="row">
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" id="name" class="form-control" ngModel name="username" required>
+    </div>
+    <button class="btn btn-default" type="button">Suggest an Username</button>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" class="form-control" ngModel name="email" required email #email="ngModel">
+      <span class="text-danger" *ngIf="!email.valid && email.touched">Please enter a valid email</span>
+    </div>
+    <div class="form-group">
+      <label for="secret">Secret Questions</label>
+      <select name=""  id="secret" class="form-control" ngModel name="secret">
+        <option value="pet">Your first pet?</option>
+        <option value="teacher">Your first teacher</option>
+      </select>
+      <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Submit</button>
+    </div>
+  </form>
+</div> -->
+<!-- Property binding -->
+<div class="row">
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div ngModelGroup="userData" #userData="ngModelGroup">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" id="name" class="form-control" ngModel name="username" required>
+    </div>
+    <button (click)="suggestedUsername()" class="btn btn-default" type="button">Suggest an Username</button>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" class="form-control" ngModel name="email" required email #email="ngModel">
+      <span class="text-danger" *ngIf="!email.valid && email.touched">Please enter a valid email</span>
+    </div>
+  </div>
+  <div class="radio" *ngFor="let gender of genders">
+    <label for="">
+      <input type="radio" name="gender" ngModel [value]="gender"> {{gender}}
+    </label>
+  </div>
+    <div class="form-group">
+      <label for="secret">Secret Questions</label>
+      <select name=""  id="secret" class="form-control" [ngModel] name="secret">
+        <option value="pet">Your first pet?</option>
+        <option value="teacher">Your first teacher</option>
+      </select>
+      <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Submit</button>
+    </div>
+  </form>
+</div>

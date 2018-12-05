@@ -10,6 +10,7 @@ import { DashboardComponent } from './components/user/dashboard/dashboard.compon
 import { AlertModule } from 'ngx-bootstrap';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { HomeComponent } from './components/home/home.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,8 @@ import { HomeComponent } from './components/home/home.component';
     BrowserModule,
     AppRoutingModule,
     AlertModule.forRoot(),
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
