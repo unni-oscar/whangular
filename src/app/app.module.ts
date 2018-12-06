@@ -10,7 +10,7 @@ import { DashboardComponent } from './components/user/dashboard/dashboard.compon
 import { AlertModule } from 'ngx-bootstrap';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { HomeComponent } from './components/home/home.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +28,8 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     AlertModule.forRoot(),
     AngularFontAwesomeModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

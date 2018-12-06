@@ -4,16 +4,28 @@
         <h3 class="panel-title"><strong>Login </strong></h3>
       </div>
       <div class="panel-body">
-        <form role="form">
+        <form role="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
           <div class="form-group">
             <label for="exampleInputEmail1">Email</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+            <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+            <span class="text-danger"
+            *ngIf="!loginForm.get('email').valid && loginForm.get('email').touched">Please enter a valid email address</span>
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Password <a href="/sessions/forgot_password">(forgot password)</a></label>
-              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+              <input formControlName="password"  type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+              <span class="text-danger"
+            *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">Please enter password</span>
           </div>
-          <button type="submit" class="btn btn-sm btn-default">Login</button>
+            <hr>
+          <div formArrayName="hobbies">
+              <h4>Hobbies</h4>
+              <button class="btn btn-secondary" type="button" (click)="onAddHobbies()">Add Hobbies</button>
+            <div class="form-group" *ngFor="let hobbyControl of loginForm.get('hobbies').controls; let i = index">
+              <input type="text" class="form-control" [formControlName]="i">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-sm btn-primary">Login</button>
         </form>
       </div>
     </div>
