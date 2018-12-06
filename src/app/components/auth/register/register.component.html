@@ -1,3 +1,37 @@
-<p>
-  register works!
-</p>
+<div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><strong>Login </strong></h3>
+      </div>
+      <div class="panel-body">
+        <form role="form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+              <label for="exampleInputEmail1">Name</label>
+              <input formControlName="username" type="text" class="form-control"  placeholder="Enter Name">
+              <span class="text-danger"
+              *ngIf="!registerForm.get('username').valid && registerForm.get('username').touched">
+             Please Name
+            </span>
+            </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email</label>
+            <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+            <span class="text-danger"
+            *ngIf="!registerForm.get('email').valid && registerForm.get('email').touched">
+            <span *ngIf="registerForm.get('email').errors['emailIsForbidden']">Invalid email</span>
+            <span *ngIf="registerForm.get('email').errors['required']">Please enter a valid email address</span>
+          </span>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password <a href="/sessions/forgot_password">(forgot password)</a></label>
+              <input formControlName="password"  type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+              <span class="text-danger"
+            *ngIf="!registerForm.get('password').valid && registerForm.get('password').touched">Please enter password</span>
+          </div>
+         
+         
+          <button type="submit" class="btn btn-sm btn-primary">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
